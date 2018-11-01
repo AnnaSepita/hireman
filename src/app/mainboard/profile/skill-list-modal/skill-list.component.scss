@@ -1,0 +1,31 @@
+page-profile-skill-list {
+  ion-label {
+    color: $header_bg_color;
+  }
+  .toolbar-background-md {
+    background-color: $header_bg_color;
+  }
+  ion-icon, .toolbar-title, .toolbar-title-md {
+    color: rgb(255, 255, 255);
+  }
+  .icon-dissabled{
+    color: rgba(136, 136, 136, 0.35);
+  }
+  .alert_message {
+    color: rgb(159, 158, 158);
+    line-height: 1.2;
+    h6{
+      font-weight: bold;
+    }
+  }
+  .checkbox-md-primary .checkbox-checked {
+    border-color: #303030;
+    background-color: #303030;
+    color: white!important;
+    border-radius: 20%;
+    //margin-right: 15%;
+  }
+  .checkbox-md-primary .checkbox-checked .checkbox-inner{
+    border-color: white!important;
+  }
+}

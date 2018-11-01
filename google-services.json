@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "779397238164",
+    "firebase_url": "https://hireaman-29f51.firebaseio.com",
+    "project_id": "hireaman-29f51",
+    "storage_bucket": "hireaman-29f51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779397238164:android:271c615e4f951a6a",
+        "android_client_info": {
+          "package_name": "com.hireman.gbl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779397238164-tsosf87urcnfo4e9pbr3fptp0hm50md9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCb9qdigJGqyiVN4Zm1P0o-NR9KuLOhjVI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Інфо</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list no-lines>
+    <button ion-item detail-none margin-top (click)="toRate()">
+    <div class="star"><img [src]="imageURI">
+      <b>Оцініть нас</b>
+      </div>
+    </button>
+    <button ion-item detail-none margin-top (click)="toHelp()">
+      <div class="call_man"><img [src]="imageURI2">
+      <b>Підтримка</b>
+      </div>
+    </button>
+    <button ion-item detail-none margin-top (click)="toAbout()">
+    <div class="info"><img [src]="imageURI3">
+       <b>Про нас</b>
+      </div>
+    </button>
+    <button ion-item detail-none margin-top (click)="logout()">
+    <div class="exit"><img [src]="imageURI4">
+      <b>Вихід</b>
+      </div>
+    </button>
+  </ion-list>
+</ion-content>
+

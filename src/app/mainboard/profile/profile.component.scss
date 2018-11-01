@@ -1,0 +1,78 @@
+@import "user-info/user-info.component";
+@import "user-skills/skill.component";
+
+page-profile{
+   .scroll-content{
+    padding-top: 0px!important;
+    // background: #dad9d9;
+
+  }
+  .scroll-content{
+    background: #e4e4e4;
+  }
+  ion-header{
+  //  border-bottom: 1px solid black;
+  }
+  .button-outline-md {
+    color: $header_bg_color;
+    border-color: $header_bg_color;
+  }
+  .range-md-secondary .range-bar-active, .range-md-secondary .range-knob, .range-md-secondary .range-pin, .range-md-secondary .range-pin::before {
+    background: $active_bg_color;
+  }
+  .list-header-md {
+    text-align: center;
+    color: $header_bg_color;
+  }
+
+  ion-label {
+    color: $header_bg_color;
+  }
+  .toolbar-background-md {
+    background-color: $header_bg_color;
+  }
+  ion-icon, .toolbar-title, .toolbar-title-md {
+    color: rgb(255, 255, 255);
+  }
+  .header_toogles{
+    background:#707070;
+    position: fixed;
+    width: 100%;
+    z-index: 89;
+    height: 65px;
+  }
+  .segment-md .segment-button {
+    p {
+      margin-top: -12px;
+      font-size: 15px;
+      color: #fbfbfb;
+    }
+    padding: 8px 10px;
+    height: 3.6rem;
+    margin-top: 15px;
+    padding: 8px 10px;
+    color: white;
+    background: #767676;
+    border: 1.2px solid white;
+    text-transform: none;
+    font-size: 17px;
+  }
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated {
+p{
+  color: #767676;
+  font-weight: 500;
+}
+    border: 1px solid transparent;
+    background: #fbfbfb;
+  }
+  .left_button {
+    border-radius: 7px 0 0 7px;
+  }
+  .right_button {
+    border-radius: 0 7px 7px 0;
+  }
+
+  .skills{
+    margin-top: 20%;
+  }
+}

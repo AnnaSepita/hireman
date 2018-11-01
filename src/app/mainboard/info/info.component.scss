@@ -1,0 +1,98 @@
+page-info{
+  .scroll-content{
+    background: #e6e6e6;
+  }
+  ion-header{
+   // border-bottom: 1px solid black;
+  }
+   .list-md[no-lines] .item-block{
+     margin-top: 8px!important;
+   }
+  .list-md[no-lines] {
+    margin-top: -6px!important;
+  }
+  .item{
+    margin-top: 1%;
+  //  margin-left: 2.5%;
+    //border-radius: 2px;
+    width: calc(100% - 0px);
+    font-size: 1.4rem;
+    background: #fbfbfb;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  }
+  .label{
+    text-align: center;
+    display: flex;
+   // margin-top: 20px;
+  }
+  button{
+    b{
+      font-weight: 500;
+    }
+  }
+  .star{
+    b{
+      margin-left: 9%;
+      font-size: 16px;
+      display: inline-block;
+      margin-top: 7px;
+    }
+    text-align: start;
+    height: 28px;
+    display: flex;
+    img{
+
+      max-width: 16%!important;
+    }
+  }
+  .call_man{
+    b{
+      margin-left: 11%;
+      font-size: 16px;
+      display: inline-block;
+      margin-top: 6px;
+    }
+    text-align: start;
+    height: 28px;
+    display: flex;
+    //height: 61px;
+    img{
+
+      max-width: 13%;
+    }
+  }
+
+  .info{
+    b{
+      margin-left: 24%;
+      font-size: 16px;
+      display: inline-block;
+      margin-top: 6px;
+    }
+    text-align: start;
+    height: 28px;
+    display: flex;
+    ;
+    img{
+      margin-left: 7%;
+      max-width: 14% !important;
+    }
+  }
+  .exit{
+    b{
+      margin-left: 29%;
+      font-size: 16px;
+      display: inline-block;
+      margin-top: 3px;
+    }
+    text-align: start;
+    height: 28px;
+    display: flex;
+    img{
+      height: 19px;
+      max-width: 38%!important;
+      margin-top: 3px;
+    }
+  }
+  }

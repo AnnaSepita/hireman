@@ -1,0 +1,28 @@
+.phone-contacts {
+  button {
+    color: #ffffff;
+    padding: 0;
+    width: 27px;
+    border-radius: 100%;
+    margin: 0;
+  }
+  .contact-name {
+    padding-top: 2px;
+  }
+
+  .item-md [item-end] {
+    margin: -2px 0 0 0;
+  }
+  .label-md {
+    margin: 13px 0 13px 0;
+  }
+
+  .number-block {
+    margin-bottom: 10px;
+  }
+  @media screen and (max-width: 360px) {
+    .number {
+      font-size: 0.8em;
+    }
+  }
+}

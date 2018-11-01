@@ -1,0 +1,66 @@
+<ion-content overflow-scroll="true">
+  <ion-slides pager>
+    <ion-slide class="first">
+      <ion-header>
+        <ion-buttons end>
+          <button ion-button
+                  margin-vertical
+                  (click)="tolog()"
+                  color="primary"
+                  >Пропустити
+          </button>
+        </ion-buttons>
+      </ion-header>
+
+      <div class="icons">
+        <img [src]="imageURI">
+      </div>
+      <h2 class="slide-title">Lorem ipsum dolor.</h2>
+      <ion-row
+        justify-content-center>
+        <ion-col col-10><p> ЛОрем Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, unde?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi eos, eum fugit impedit maxime natus
+          nesciunt omnis quam sit!</p></ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide class="second">
+      <ion-header>
+        <ion-buttons end>
+          <button ion-button
+                  margin-vertical
+                  (click)="tolog()">Пропустити
+          </button>
+        </ion-buttons>
+      </ion-header>
+      <img [src]="imageURI2">
+      <h2 class="slide-title">Lorem ipsum dolor.</h2>
+      <ion-row
+        justify-content-center>
+        <ion-col col-10><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, unde?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi eos, eum fugit impedit maxime natus
+          nesciunt omnis quam sit!</p></ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide class="third">
+      <ion-header>
+      </ion-header>
+      <img [src]="imageURI3">
+      <h2 class="slide-title">Lorem ipsum dolor.</h2>
+      <ion-row
+        justify-content-center>
+        <ion-col col-10><p no-margin> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, unde?
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi eos, eum fugit impedit maxime natus
+          nesciunt omnis quam sit!</p>
+          <button
+            ion-button
+            large clear
+            icon-end color="primary"
+            (click)="tolog()">
+            Продовжити
+            <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

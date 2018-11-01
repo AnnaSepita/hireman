@@ -1,0 +1,195 @@
+<!--Хедер-->
+
+<ion-header>
+  <ion-navbar>
+    <ion-buttons *ngIf="!showSearchbar" left>
+      <button ion-button icon-only disabled>
+        <ion-icon></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!showSearchbar">
+      Пропозиції
+    </ion-title>
+    <ion-buttons *ngIf="!showSearchbar && !myJobs"
+                 (click)="showSearchBar()" right>
+      <button ion-button icon-only>
+        <ion-icon name="search" ios="ios-search" md="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons *ngIf="!showSearchbar && myJobs" right>
+      <button ion-button icon-only disabled>
+        <ion-icon></ion-icon>
+      </button>
+    </ion-buttons>
+    <div *ngIf="showSearchbar">
+      <ion-searchbar placeholder="Пошук пропозицій"
+                     (ionInput)="onSearchChange($event)"
+                     [animated]="'true'"
+                     [showCancelButton]="'true'"
+                     (ionCancel)="showSearchBar()"></ion-searchbar>
+    </div>
+  </ion-navbar>
+  <ngx-loading-bar></ngx-loading-bar>
+</ion-header>
+
+<!--Карточки-->
+
+<ion-content padding-vertical>
+  <div class="header_toogles">
+    <ion-segment [(ngModel)]="category">
+      <ion-segment-button class="left_button" value="all" (click)="setAllJob()">
+        <p>Всі</p>
+      </ion-segment-button>
+      <ion-segment-button class="right_button" value="my" (click)="setMyJob()">
+       <p>Мої</p>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <!--Предложенные заявки-->
+
+  <div class="card_indent">
+    <div *ngIf="!myJobs">
+      <div *ngIf="!showSearchbar">
+        <ion-card  *ngFor="let entity of orderJobsList">
+          <ion-icon class="icon-right" name="close" (click)="declineOrder(entity.id)"></ion-icon>
+          <ion-card-header text-wrap>
+            <ion-avatar item-start>
+              <div class="visual">
+                <img *ngIf="entity.photo_path" [src]="entity.photo_path">
+              </div>
+            </ion-avatar>
+            <div class="entity_info">
+              <span text-wrap>
+                <h1><b>{{entity.first_name}} {{entity.last_name}}</b></h1><p>надіслав Вам заявку на роботу</p>
+              </span>
+            </div>
+          </ion-card-header>
+          <div class="work_title">
+            <h1>{{entity.title}}</h1>
+          </div>
+          <ion-card-content>
+            <div *ngIf="!(entity.id === jobsId && entity.sender_id === sendId)" (click)="moreInfo(entity.id, entity.sender_id)" class="work_description">
+              <p class="cutter">{{entity.description}}</p>
+            </div>
+            <div *ngIf="entity.id === jobsId && entity.sender_id === sendId" class="work_description">
+              <p text-wrap>{{entity.description}}</p>
+            </div>
+
+            <!--Далее происходят очень жуткие вещи-->
+
+            <p><img [src]="imageURI"><div class="test">&nbsp;{{entity.start_date | date: 'dd/MM/yyyy'}} - {{entity.end_date | date: 'dd/MM/yyyy'}}</div></p>
+            <p><span><img [src]="imageURI2"><div class="test"><b>&nbsp;${{entity.price}}</b></div></span><br>
+              <span><img [src]="imageURI3">&nbsp;&nbsp;{{entity.city}}</span></p>
+            <div class="note">
+            <span>Розміщено: {{(entity.createdRecently ? entity.createdRecently : entity.created_at | date: 'dd/MM/yyyy, hh:mm' )}}
+              <p><ion-icon name="eye"></ion-icon>&nbsp;{{entity.count}}</p>
+            </span>
+            </div>
+
+            <!--Вроде тут всё кончилось-->
+
+            <div class="shared_buttons">
+              <span (click)="applyOrder(entity.job_id, entity.id)">
+                <button ion-button>Подати заявку</button>
+              </span>
+              <span (click)="shareJob(entity.id)">
+                <div class="share_butt"><img [src]="imageURI4"></div>
+              </span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <!--Все предложения о работе-->
+
+      <ion-card  *ngFor="let entity of allJobsList">
+        <ion-card-header>
+          <div class="work_title">
+            <h1>{{entity.title}}</h1>
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <div *ngIf="entity.id !== jobsId" (click)="moreInfo(entity.id)" class="work_description">
+            <p class="cutter">{{entity.description}}</p>
+          </div>
+          <div *ngIf="entity.id === jobsId" class="work_description">
+            <p text-wrap>{{entity.description}}</p>
+          </div>
+
+          <!--Снова страшные вещи-->
+
+          <p><img [src]="imageURI"><div class="test">&nbsp;{{entity.start_date | date: 'dd/MM/yyyy'}} - {{entity.end_date | date: 'dd/MM/yyyy'}}</div></p>
+          <p><span><img [src]="imageURI2"><div class="test"><b>&nbsp;${{entity.price}}</b></div></span><br>
+            <span><img [src]="imageURI3">&nbsp;&nbsp;{{entity.city}}</span></p>
+          <div class="note">
+            <span>Розміщено: {{(entity.createdRecently ? entity.createdRecently : entity.created_at | date: 'dd/MM/yyyy, hh:mm' )}}
+              <p><ion-icon name="eye"></ion-icon>&nbsp;{{entity.count}}</p>
+            </span>
+          </div>
+
+          <!--Фууууууух, закончилось-->
+
+          <div class="shared_buttons">
+            <span (click)="applyJob(entity.id)">
+              <button ion-button>Подати заявку</button>
+            </span>
+            <span (click)="shareJob(entity.id)">
+              <div class="share_butt"><img [src]="imageURI4"></div>
+            </span>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <div class="alert_message" justify-content-between align-items-center *ngIf="!allJobsList || allJobsList.length === 0">
+        <h6 text-center>
+          Пропозицій немає
+        </h6>
+      </div>
+    </div>
+
+    <!--Мои заявки-->
+
+    <div class="card_indent">
+      <div *ngIf="myJobs">
+        <ion-card *ngFor="let entity of myJobsList">
+          <ion-icon class="icon-right" name="close" (click)="deleteMyJobs(entity.id)"></ion-icon>
+          <ion-card-header>
+            <h1>{{entity.title}}</h1>
+          </ion-card-header>
+          <ion-card-content>
+            <div *ngIf="entity.id !== jobsId" (click)="moreInfo(entity.id)" class="work_description">
+              <p class="cutter">{{entity.description}}</p>
+            </div>
+            <div *ngIf="entity.id === jobsId" class="work_description">
+              <p text-wrap>{{entity.description}}</p>
+            </div>
+
+            <!--Оооо неееет!!-->
+
+            <p><img [src]="imageURI"><div class="test">&nbsp;{{entity.start_date | date: 'dd/MM/yyyy'}} - {{entity.end_date | date: 'dd/MM/yyyy'}}</div></p>
+            <p><span><img [src]="imageURI2"><div class="test"><b>&nbsp;${{entity.price}}</b></div></span><br>
+              <span><img [src]="imageURI3">&nbsp;&nbsp;{{entity.city}}</span></p>
+            <div class="note">
+            <span>Розміщено: {{(entity.createdRecently ? entity.createdRecently : entity.created_at | date: 'dd/MM/yyyy, hh:mm' )}}
+              <p><ion-icon name="eye"></ion-icon>&nbsp;{{entity.count}}</p>
+            </span>
+            </div>
+
+            <!--Всё-->
+
+            <div class="shared_buttons">
+              <span (click)="shareJob(entity.job_id)">
+                <div class="share_butt"><img [src]="imageURI4"></div>
+              </span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+        <div class="alert_message" justify-content-between align-items-center *ngIf="!myJobsList || myJobsList.length === 0">
+          <h6 text-center>
+            Ви не подали жодної заявки
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar color='navbarColor'>
+        <ion-buttons left>
+            <button ion-button (click)="dismiss()">
+                <span ion-text color="primary" showWhen="ios">Cancel</span>
+                <ion-icon name="md-close" showWhen="android, windows, browser"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title text-center>
+            Оберіть навички зі списку
+        </ion-title>
+        <ion-buttons *ngIf="isenabled" right>
+            <button ion-button icon-only (click)="save()">
+                <ion-icon name="done-all"></ion-icon>
+            </button>
+        </ion-buttons>
+      <ion-buttons *ngIf="!isenabled" right>
+        <button ion-button icon-only>
+          <ion-icon class="icon-dissabled" name="done-all"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+    <ngx-loading-bar></ngx-loading-bar>
+
+</ion-header>
+<ion-content padding-vertical>
+    <ion-list>
+        <ion-item *ngFor="let skill of entity">
+            <ion-label>{{skill.description}}</ion-label>
+            <ion-checkbox color="primary" round item-end (ionChange)="onChangeCheckBox(skill.id,$event)">
+            </ion-checkbox>
+        </ion-item>
+    </ion-list>
+  <div class="alert_message" justify-content-between align-items-center *ngIf="!entity || entity.length === 0">
+    <h6 text-center>
+      Ви обрали всі можливі навички
+    </h6>
+  </div>
+</ion-content>

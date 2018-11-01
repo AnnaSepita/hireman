@@ -1,0 +1,75 @@
+<ion-list padding-horizontal>
+  <ion-row>
+    <div col-4 (click)="openPhotoActions()" vertical-align-center text-center style="min-height: 120px">
+      <img [src]="defaultImg" alt="" *ngIf="!this.entity.photo_path">
+      <img [src]="this.entity.photo_path" alt="" *ngIf="this.entity.photo_path!=''">
+    </div>
+    <ion-list col-8>
+      <div class="first_last_name">
+        <ion-item floating>
+          <ion-input (ionChange)="onFormChange()" [(ngModel)]="entity.first_name" [disabled]="!editMode"
+                     placeholder="Ім'я*"
+                     type="text"></ion-input>
+        </ion-item>
+        <ion-item floating>
+          <ion-input (ionChange)="onFormChange()"
+                     [(ngModel)]="entity.last_name" [disabled]="!editMode"
+                     placeholder="Прізвище*"
+                     type="text"></ion-input>
+        </ion-item>
+      </div>
+    </ion-list>
+  </ion-row>
+  <div class="connection_datas">
+  <ion-item no-padding>
+  <ion-icon name="call" item-left no-lines></ion-icon>
+    <ion-input name="phone" placeholder="Номер телефону"
+               type="text" (ionChange)="onFormChange()" [(ngModel)]="entity.phone"
+               disabled></ion-input>
+    <ion-row class="border">
+    </ion-row>
+  </ion-item>
+  <ion-item no-padding>
+
+  <ion-icon name="mail" item-left no-border></ion-icon>
+    <ion-input placeholder="E-mail*"
+               type="email"
+               (ionChange)="onFormChange()"
+               [(ngModel)]="entity.email"></ion-input>
+    <ion-row class="border">
+    </ion-row>
+  </ion-item>
+  <!--<div class="alert-message">-->
+    <!--<span no-padding *ngIf="!validateEmail(entity.email) && editMode">-->
+      <!--email не відповідає стандарту-->
+    <!--</span>-->
+  <!--</div>-->
+
+  <ion-item no-padding>
+  <ion-icon name="navigate" item-left no-border></ion-icon>
+    <ion-input placeholder="Місто*" type="text" (ionChange)="onFormChange()"  [(ngModel)]="entity.city"
+               [disabled]="!editMode"></ion-input>
+    <ion-row class="border">
+    </ion-row>
+  </ion-item>
+  </div>
+  <div class="passport">
+  <ion-item no-padding>
+    <ion-label> У мене є закордонний паспорт</ion-label>
+    <ion-checkbox (ionChange)="onFormChange()" color="primary" checked="false" round item-end
+                  [(ngModel)]="entity.passport_id"
+                  [disabled]="!editMode"></ion-checkbox>
+  </ion-item>
+  </div>
+
+  <!--<button no-padding detail-push ion-item (click)="presentContactModal()">Змінити пароль</button>-->
+</ion-list>
+<div justify-content-between align-items-center class="move_buttons">
+  <ion-buttons text-center *ngIf="isChanged">
+    <button ion-button (click)="save()">
+      Зберегти
+    </button>
+  </ion-buttons>
+</div>
+
+

@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar color='navbarColor'>
+        <ion-title text-center>
+            Профіль
+        </ion-title>
+    </ion-navbar>
+    <ngx-loading-bar></ngx-loading-bar>
+</ion-header>
+
+<ion-content padding-vertical>
+    <div class="header_toogles">
+        <ion-segment [(ngModel)]="segment">
+            <ion-segment-button class="left_button" value="info">
+                <p>Про мене</p>
+            </ion-segment-button>
+            <ion-segment-button class="right_button" value="skills">
+                <p>Навички</p>
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    <div [ngSwitch]="segment">
+
+        <div *ngSwitchCase="'info'">
+            <page-profile-info [editMode]="editMode" (onUserChange)="onUserChange($event)"></page-profile-info>
+        </div>
+
+        <div *ngSwitchCase="'skills'">
+            <page-profile-skill [editMode]="editMode" (onSkillChange)="onSkillChange($event)"></page-profile-skill>
+        </div>
+    </div>
+
+
+</ion-content>

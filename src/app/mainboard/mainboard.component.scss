@@ -1,0 +1,70 @@
+page-mainboard {
+  .toolbar-background-ios, .toolbar-background {
+    background-color: $header_backgrond;
+  }
+  .bar-buttons-ios[end] {
+    .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+      color: $header_bg_color;
+    }
+  }
+  .toolbar-title-md {
+    color: $header_bg_color;
+  }
+  .button-clear-ios, .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: $header_bg_color;
+  }
+
+  ion-segment {
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  ion-content {
+    input[disabled] {
+      color: #000 !important;
+      background: none !important;
+      opacity: 1 !important;
+    }
+    .checkbox-ios.checkbox-disabled, .item-ios.item-checkbox-disabled ion-label {
+      pointer-events: none;
+      color: #000 !important;
+      background: none !important;
+      opacity: 1 !important;
+    }
+  }
+  .content {
+    background-color: rgb(250, 250, 250);
+
+  }
+
+  [icon-only] ion-icon {
+    padding: 0 0.5em;
+    font-size: 1.5em !important;
+    line-height: .67;
+    pointer-events: none;
+  }
+  .fab-md {
+    background-color: $header_bg_color;
+  }
+  .button-md{
+   // background-color: $header_backgrond;
+    background-color: $header_bg_color;
+    border: none;
+    width: 48%;
+    border-radius: 8px;
+    height: 2.7rem;
+
+  }
+  .tabs-md .tab-button[aria-selected=true] .tab-button-icon, .tabs-md .tab-button[aria-selected=true]{
+    font-size: 18px;
+    color: #fec01c!important;
+  }
+  .tabs-md .tab-button-icon{
+    font-size: 18px;
+  }
+  .tabs-md[tabsLayout=icon-top] .has-icon .tab-button-text{
+    font-size: 14px;
+  }
+
+}
+

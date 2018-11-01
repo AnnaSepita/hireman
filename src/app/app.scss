@@ -1,0 +1,46 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+ion-icon{
+  font-size: 1.4em;
+}
+@font-face {
+  font-family: "Glypicons";
+  font-style: normal;
+  font-weight: 700;
+  src: local("glypicons regular"), local("glypicons-bold"), url("../assets/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../assets/fonts/glyphicons-halflings-regular.woff") format("woff");
+}
+
+/*@import "./auth/login/login.component";
+@import "./auth/registration/registration.component";*/
+@import "./mainboard/job-list/job-list.component";
+@import "./mainboard/profile/profile.component";
+@import "./mainboard/profile/user-skill-range/user-skill-range.component";
+.checkbox-md-primary .checkbox-checked {
+  background-color: rgb(255, 255, 255);
+  border-color: $active_bg_color;
+  .checkbox-inner {
+    border-color: $header_bg_color !important;
+  }
+}
+.button-md{
+  background-color: $header_bg_color;
+  border-radius: 8px;
+  text-transform: none;
+  border: 1px solid black;
+}
+
+
+
+

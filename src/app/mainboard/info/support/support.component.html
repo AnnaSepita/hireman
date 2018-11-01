@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-row justify-content-between align-items-center>
+      <ion-col>
+        <ion-buttons ion-col>
+          <button ion-button text-capitalize (click)="goBack()">
+            Назад
+          </button>
+        </ion-buttons>
+      </ion-col>
+
+      <ion-title text-center ion-col>
+        Підтримка
+      </ion-title>
+
+      <ion-buttons ion-col text-end>
+        <button ion-button text-capitalize
+                [disabled]="disableSendButton()"
+                (click)="sendMessage()">
+          Відправити
+        </button>
+      </ion-buttons>
+
+    </ion-row>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h6 no-margin margin-top>Опишіть проблему:</h6>
+  <ion-textarea
+    rows="10"
+    [(ngModel)]="message"></ion-textarea>
+
+</ion-content>
+
+
+
+
+

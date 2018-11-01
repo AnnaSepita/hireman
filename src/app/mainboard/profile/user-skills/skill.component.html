@@ -1,0 +1,34 @@
+<div class="card_indent">
+<ion-card *ngFor="let skill of entity">
+  <ion-card-header>
+    {{skill.description}} {{skill.lvl}}/10
+    <ion-icon name="close" (click)="deleteSkill(skill.id)"></ion-icon>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-range *ngIf="editMode" min="1" max="10" [pin]="true" (ionChange)="onFormChange()" [(ngModel)]="skill.lvl"
+               color="secondary">
+      <ion-label range-left>1</ion-label>
+      <ion-label range-right>10</ion-label>
+    </ion-range>
+  </ion-card-content>
+</ion-card>
+</div>
+<div class="alert_message" justify-content-between align-items-center *ngIf="!entity || entity.length === 0">
+  <h6 text-center>
+    Оберіть хоча б один навик
+  </h6>
+</div>
+
+<ion-buttons style="text-align: center" *ngIf="isChanged">
+  <button ion-button (click)="save()">
+    Зберегти
+  </button>
+</ion-buttons>
+
+<ion-fab right bottom>
+  <button ion-fab (click)="goToAddSkill()" color="grey">
+    <ion-icon name="add" color="white"></ion-icon>
+  </button>
+</ion-fab>
+
